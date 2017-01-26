@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import axios from 'axios';
+import BookDetail from './BookDetail';
 
 class BookList extends Component {
   state = { books: [] };
 
   componentWillMount() {
-    axios.get('http://www.mocky.io/v2/588a01fc2500003a1aadcf97')
+    axios.get('http://www.mocky.io/v2/588a48743000005d03fa8be1')
       .then(response => this.setState({ books: response.data }));
   }
 
   renderBooks() {
     return this.state.books.map(book =>
-      <Text key={book.title}>{book.title}</ Text>
+      <BookDetail key={book.title} book={book} />
     );
   }
 
   render() {
     return (
-      <View>
+      <ScrollView>
         {this.renderBooks()}
-      </View>
+      </ScrollView>
     );
   }
 }

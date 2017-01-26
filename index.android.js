@@ -4,7 +4,7 @@ import Header from './src/components/Header';
 import BookList from './src/components/BookList';
 
 const App = () => (
-  <View>
+  <View style={{ flex: 1 }}>
     <Header text={'Books'} />
     <BookList />
   </View>
